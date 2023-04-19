@@ -17,7 +17,7 @@ const Cars = () => {
             <CarForm setOnChange={setOnChange} updateCar={updateCar} setCarUpdate={setCarUpdate}/>
             <hr/>
             {
-                cars.map(car=><Car key={car.id} car={car} setCarUpdate={setCarUpdate}/>)
+                cars.map(car=><Car key={car.id} car={car} setCarUpdate={setCarUpdate} setOnChange={setOnChange}/>)
             }
         </div>
     );
