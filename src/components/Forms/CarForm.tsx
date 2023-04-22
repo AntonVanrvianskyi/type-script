@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {useForm} from "react-hook-form";
+import {SubmitHandler, useForm} from "react-hook-form";
 import {ICar} from "../../interfaces/car-interface";
 import {IUseState} from "../../types/useState";
 import {carService} from "../../services/car-service";
@@ -18,13 +18,13 @@ const CarForm:FC<IProps> = ({setOnChange,updateCar,setCarUpdate}) => {
                 setValue('price', updateCar.price)
         }
     },[updateCar])
-    const save = async (car:ICar) => {
+    const save:SubmitHandler<ICar> = async (car:ICar) => {
         await carService.create(car);
         setOnChange(prevState => !prevState);
         reset()
     }
 
-    const update = async (car:ICar) => {
+    const update:SubmitHandler<ICar> = async (car:ICar) => {
         await carService.updateById(updateCar!.id, car)
         setOnChange(prevState => !prevState);
         reset();

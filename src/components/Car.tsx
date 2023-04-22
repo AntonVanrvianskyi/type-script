@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {ICar} from "../interfaces/car-interface";
 import {IUseState} from "../types/useState";
 import {carService} from "../services/car-service";
+import {IRes} from "../types/response.axios";
 interface IProps {
     car:ICar,
     setCarUpdate:IUseState<ICar|null>
