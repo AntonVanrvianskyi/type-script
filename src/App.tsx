@@ -7,11 +7,8 @@ import CarsPage from "./pages/CarsPage";
 function App() {
   return (
     <Routes>
-        <Route path={'/'} element={<MainLayout/>}>
-                <Route path={'/cars'} element={<CarsPage/>}/>
-        </Route>
-
-
+        <Route path={'/'} element={<MainLayout/>}/>
+        <Route path={'/cars'} element={<CarsPage/>}/>
     </Routes>
   );
 }
