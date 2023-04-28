@@ -1,15 +1,14 @@
 import React, {FC} from 'react';
 
-import {Link} from "react-router-dom";
+import {Outlet} from "react-router-dom";
+import Navigation from "../components/navigaton/Navigation";
 
 
 const MainLayout:FC = () => {
     return (
         <div>
-            <Link to={'cars'}>cars</Link>
-            <Link to={'todos'}>todos</Link>
-            <Link to={'albums'}>albums</Link>
-
+           <Navigation/>
+            <Outlet/>
         </div>
 
     );

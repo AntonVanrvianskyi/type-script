@@ -1,0 +1,1 @@
+export const SET:string = 'SET_CAR'
