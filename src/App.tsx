@@ -1,11 +1,18 @@
 import React from 'react';
 import './App.css';
+import MainLayout from "./layouts/MainLayout";
+import {Route, Routes} from "react-router-dom";
+import CarsPage from "./pages/CarsPage";
 
 function App() {
   return (
-    <div className="App">
+    <Routes>
+        <Route path={'/'} element={<MainLayout/>}>
+                <Route path={'/cars'} element={<CarsPage/>}/>
+        </Route>
 
-    </div>
+
+    </Routes>
   );
 }
 
