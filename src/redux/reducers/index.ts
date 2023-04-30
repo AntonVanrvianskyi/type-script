@@ -1,1 +1,1 @@
-export * from './car.reducer'
+export * from './car.reducer/car.reducer'
