@@ -3,12 +3,13 @@ import {IState} from "../../../interfaces/state.interface";
 import {CAR_FOR_UPDATE_ACTION, DELETE_CAR, SET, SET_CAR_FOR_UPDATE, SHOW_FORM} from "../../actions";
 
 
-const initialState:IState = {
+ export const initialState:IState = {
     cars:[],
     showForm:false,
     carForUpdate: null,
     trigger:false
 }
+
 
 export const carReducer = (state=initialState, action:IAction) => {
     switch (action.type) {

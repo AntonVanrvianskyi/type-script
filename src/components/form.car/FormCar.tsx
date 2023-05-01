@@ -3,15 +3,16 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {ICar} from "../../interfaces/car.interface";
 import './Form.css'
 import {useDispatch, useSelector} from "react-redux";
-import {IState} from "../../interfaces/state.interface";
+
 import {carService} from "../../services/car.service";
 import {CAR_FOR_UPDATE_ACTION, SHOW_FORM} from "../../redux";
+import {RootStateType} from "../../types/root.state.type";
 
-const Form:FC = () => {
+const FormCar:FC = () => {
 
 
     const {register,handleSubmit, setValue } = useForm<ICar>()
-    const store = useSelector((state:IState) =>state.carForUpdate );
+    const store = useSelector((state:RootStateType) =>state.cars.carForUpdate );
     const dispatch = useDispatch()
 
 
@@ -33,15 +34,20 @@ const Form:FC = () => {
 
     }
     return (
+
         <div className={'block-form'}>
-        <form onSubmit={handleSubmit(store?update:save)} >
-            <input placeholder={'brand'} {...register('brand')}/>
-            <input placeholder={'price'} {...register('price')}/>
-            <input placeholder={'year'} {...register('year')}/>
+            <div className={'container'}>
+        <form className={'form'} onSubmit={handleSubmit(store?update:save)} >
+            <input className={'input'} placeholder={'brand'} {...register('brand')}/>
+            <input className={'input'} placeholder={'price'} {...register('price')}/>
+            <input className={'input'} placeholder={'year'} {...register('year')}/>
             <button>{store?'Update':'Save'}</button>
         </form>
+                <button className={'btn-cls'} onClick={()=>dispatch({type:SHOW_FORM})}>Close</button>
+            </div>
         </div>
+
     );
 };
 
-export default Form;
+export default FormCar;

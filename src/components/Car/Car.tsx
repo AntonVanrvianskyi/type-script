@@ -3,7 +3,7 @@ import {ICar} from "../../interfaces/car.interface";
 
 import './Car.css'
 import {useDispatch} from "react-redux";
-import {DELETE_CAR, SET_CAR_FOR_UPDATE, SHOW_FORM} from "../../redux";
+import {carReducer, DELETE_CAR, SET_CAR_FOR_UPDATE, SHOW_FORM} from "../../redux";
 import {carService} from "../../services/car.service";
 
 
@@ -15,7 +15,7 @@ const Car:FC<IProps> = ({car}) => {
 
     const dispatch = useDispatch()
 
-    const click = (car:ICar) => {
+    const clickUpdate = (car:ICar) => {
       dispatch({type:SHOW_FORM})
         dispatch({type:SET_CAR_FOR_UPDATE, payload:car })
     }
@@ -34,7 +34,7 @@ const Car:FC<IProps> = ({car}) => {
             <div>price: {price}</div>
 
             <div className={'button'}>
-                <button onClick={()=>click(car)}>Update</button>
+                <button onClick={()=>clickUpdate(car)}>Update</button>
                 <button onClick={()=>clickSave()}>Save</button>
                <button onClick={()=>deleteCar(car)}>Delete</button>
             </div>
